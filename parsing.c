@@ -119,9 +119,7 @@ lval eval(mpc_ast_t* t) {
 	/* If tagged as a number return it directly, otherwise it is an expression */
 	if (strstr(t->tag, "number")) {		
 		long x = strtol(t->contents, NULL, 10);
-		
-		printf("%i", errno);
-		
+				
 		return errno != ERANGE ? lval_num(x) : lval_err(LERR_BAD_NUM);
 	}
 	
